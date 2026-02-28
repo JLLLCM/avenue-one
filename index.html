@@ -4,24 +4,25 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-  <title>Avenue One — Coming Soon</title>
-  <meta name="description" content="Avenue One — Premium Haircare Distribution. Coming soon." />
+  <title>Avenue One — Website im Aufbau</title>
+  <meta name="description" content="Avenue One — Premium Haircare Distribution. Unsere Website entsteht gerade." />
   <meta name="robots" content="noindex,nofollow" />
-  <meta name="theme-color" content="#0b0a08" />
+  <meta name="theme-color" content="#f3eadb" />
 
   <style>
     :root{
-      /* Champagne / Creme palette */
-      --bg0:#090806;
-      --bg1:#0e0c09;
-      --champ:#f2e7d3;      /* creme */
-      --champ2:#e7d7bc;     /* champagne */
-      --text:#f7f1e6;
-      --muted:rgba(247,241,230,.72);
-      --muted2:rgba(247,241,230,.54);
-      --line:rgba(242,231,211,.22);
-      --card:rgba(255,255,255,.06);
-      --card2:rgba(255,255,255,.08);
+      /* Creme / Champagne */
+      --bg0:#f6efe3;
+      --bg1:#efe4d3;
+
+      --ink:#1b1a16;
+      --text: rgba(27,26,22,.92);
+      --muted: rgba(27,26,22,.68);
+      --muted2: rgba(27,26,22,.52);
+
+      --card: rgba(255,255,255,.62);
+      --card2: rgba(255,255,255,.40);
+      --line: rgba(27,26,22,.10);
 
       --radius: 24px;
       --max: 980px;
@@ -34,9 +35,9 @@
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       color: var(--text);
       background:
-        radial-gradient(900px 520px at 18% 18%, rgba(242,231,211,.16) 0%, rgba(242,231,211,0) 55%),
-        radial-gradient(900px 520px at 82% 22%, rgba(231,215,188,.12) 0%, rgba(231,215,188,0) 55%),
-        radial-gradient(1200px 800px at 50% 110%, rgba(242,231,211,.10) 0%, rgba(242,231,211,0) 55%),
+        radial-gradient(900px 520px at 18% 18%, rgba(255,255,255,.70) 0%, rgba(255,255,255,0) 55%),
+        radial-gradient(900px 520px at 82% 22%, rgba(255,255,255,.55) 0%, rgba(255,255,255,0) 55%),
+        radial-gradient(1200px 800px at 50% 110%, rgba(255,255,255,.45) 0%, rgba(255,255,255,0) 55%),
         linear-gradient(180deg, var(--bg0), var(--bg1));
       overflow-x:hidden;
     }
@@ -54,25 +55,25 @@
       position:relative;
     }
 
-    /* subtle grain */
+    /* very subtle grain */
     .shell:before{
       content:"";
       position:absolute;
       inset:-80px;
-      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='.28'/%3E%3C/svg%3E");
-      opacity:.08;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='.25'/%3E%3C/svg%3E");
+      opacity:.06;
       pointer-events:none;
-      mix-blend-mode: overlay;
-      transform: rotate(1deg);
+      mix-blend-mode: multiply;
+      transform: rotate(.6deg);
     }
 
     .card{
       position:relative;
       border-radius: var(--radius);
-      background: linear-gradient(180deg, var(--card), rgba(255,255,255,.04));
-      border: 1px solid rgba(242,231,211,.18);
-      box-shadow: 0 24px 80px rgba(0,0,0,.55);
-      backdrop-filter: blur(12px);
+      background: linear-gradient(180deg, var(--card), var(--card2));
+      border: 1px solid var(--line);
+      box-shadow: 0 26px 90px rgba(0,0,0,.12);
+      backdrop-filter: blur(10px);
       overflow:hidden;
     }
 
@@ -82,25 +83,25 @@
       position:absolute;
       inset:-1px;
       background:
-        radial-gradient(900px 200px at 20% 0%, rgba(242,231,211,.22) 0%, rgba(242,231,211,0) 70%),
-        radial-gradient(800px 220px at 80% 0%, rgba(231,215,188,.16) 0%, rgba(231,215,188,0) 65%);
+        radial-gradient(900px 220px at 20% 0%, rgba(255,255,255,.85) 0%, rgba(255,255,255,0) 70%),
+        radial-gradient(800px 240px at 80% 0%, rgba(255,255,255,.65) 0%, rgba(255,255,255,0) 65%);
       pointer-events:none;
-      opacity:.9;
+      opacity:.7;
     }
 
     .shine{
       position:absolute;
       inset:0;
       pointer-events:none;
-      background: linear-gradient(110deg, rgba(242,231,211,0) 30%, rgba(242,231,211,.14) 45%, rgba(242,231,211,0) 60%);
+      background: linear-gradient(110deg, rgba(255,255,255,0) 30%, rgba(255,255,255,.55) 45%, rgba(255,255,255,0) 60%);
       transform: translateX(-50%);
-      animation: sweep 6.0s ease-in-out infinite;
-      opacity:.55;
+      animation: sweep 6.2s ease-in-out infinite;
+      opacity:.35;
     }
     @keyframes sweep{
       0%{ transform: translateX(-60%); opacity:0; }
-      18%{ opacity:.55; }
-      50%{ transform: translateX(60%); opacity:.55; }
+      18%{ opacity:.35; }
+      50%{ transform: translateX(60%); opacity:.35; }
       100%{ transform: translateX(60%); opacity:0; }
     }
 
@@ -112,7 +113,7 @@
       justify-content:space-between;
       gap: 16px;
       padding-bottom: 18px;
-      border-bottom: 1px solid rgba(242,231,211,.16);
+      border-bottom: 1px solid var(--line);
     }
 
     .brand{
@@ -127,7 +128,7 @@
       text-transform: uppercase;
       font-weight: 650;
       font-size: 12px;
-      color: rgba(242,231,211,.82);
+      color: rgba(27,26,22,.78);
     }
 
     .brand .tag{
@@ -135,28 +136,12 @@
       color: var(--muted2);
     }
 
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap: 10px;
-      padding: 10px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(242,231,211,.18);
-      background: rgba(242,231,211,.06);
-      color: rgba(242,231,211,.82);
-      font-size: 12px;
-      white-space: nowrap;
-    }
-    .dot{
-      width: 8px; height: 8px;
-      border-radius: 99px;
-      background: rgba(242,231,211,.92);
-      box-shadow: 0 0 0 6px rgba(242,231,211,.08);
-      animation: pulse 2.6s ease-in-out infinite;
-    }
-    @keyframes pulse{
-      0%,100%{ transform: scale(1); opacity: .95; }
-      50%{ transform: scale(1.25); opacity: .55; }
+    /* Logo top-right */
+    .logo{
+      height: 40px;
+      width: auto;
+      opacity: .92;
+      filter: drop-shadow(0 10px 22px rgba(0,0,0,.10));
     }
 
     .content{
@@ -168,6 +153,7 @@
     }
     @media (max-width: 860px){
       .content{ grid-template-columns: 1fr; }
+      .logo{ height: 36px; }
     }
 
     h1{
@@ -175,10 +161,11 @@
       font-size: clamp(30px, 3.6vw, 52px);
       letter-spacing: -0.02em;
       line-height: 1.05;
+      color: rgba(27,26,22,.94);
     }
 
     .lead{
-      margin: 0 0 18px;
+      margin: 0 0 0;
       color: var(--muted);
       font-size: 16px;
       line-height: 1.7;
@@ -187,8 +174,8 @@
 
     .panel{
       border-radius: 18px;
-      border: 1px solid rgba(242,231,211,.16);
-      background: linear-gradient(180deg, rgba(242,231,211,.07), rgba(242,231,211,.03));
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.48);
       padding: 18px;
     }
 
@@ -197,7 +184,7 @@
       font-size: 12px;
       letter-spacing: .22em;
       text-transform: uppercase;
-      color: rgba(242,231,211,.82);
+      color: rgba(27,26,22,.72);
       font-weight: 650;
     }
 
@@ -215,9 +202,9 @@
     }
 
     a.btn{
-      border: 1px solid rgba(242,231,211,.20);
-      background: rgba(242,231,211,.07);
-      color: rgba(247,241,230,.92);
+      border: 1px solid rgba(27,26,22,.18);
+      background: rgba(27,26,22,.06);
+      color: rgba(27,26,22,.86);
       border-radius: 14px;
       padding: 12px 14px;
       font-size: 14px;
@@ -229,13 +216,13 @@
       transition: transform .08s ease, background .15s ease, border-color .15s ease;
     }
     a.btn:hover{
-      background: rgba(242,231,211,.11);
-      border-color: rgba(242,231,211,.28);
+      background: rgba(27,26,22,.10);
+      border-color: rgba(27,26,22,.26);
       transform: translateY(-1px);
     }
     a.btn.primary{
-      background: rgba(242,231,211,.13);
-      border-color: rgba(242,231,211,.30);
+      background: rgba(27,26,22,.12);
+      border-color: rgba(27,26,22,.26);
     }
 
     .fine{
@@ -245,33 +232,14 @@
       flex-wrap: wrap;
       margin-top: 18px;
       padding-top: 16px;
-      border-top: 1px solid rgba(242,231,211,.14);
-      color: rgba(247,241,230,.46);
+      border-top: 1px solid var(--line);
+      color: rgba(27,26,22,.46);
       font-size: 12px;
     }
 
-    .fine a{
-      color: rgba(242,231,211,.78);
-      text-decoration:none;
-      border-bottom: 1px solid rgba(242,231,211,.20);
-    }
-    .fine a:hover{ color: rgba(242,231,211,.95); }
-
     @media (prefers-reduced-motion: reduce){
-      .dot, .shine{ animation:none !important; }
+      .shine{ animation:none !important; }
       a.btn:hover{ transform:none; }
-    }
-    .logo-wrap{
-      position:absolute;
-      top:26px;
-      right:28px;
-    }
-    
-    .logo{
-      height:38px;
-      width:auto;
-      opacity:.85;
-      filter: drop-shadow(0 6px 18px rgba(0,0,0,.4));
     }
   </style>
 </head>
@@ -279,45 +247,33 @@
 <body>
   <div class="wrap">
     <div class="shell">
-      <section class="card" aria-label="Avenue One Coming Soon">
+      <section class="card" aria-label="Avenue One Website im Aufbau">
         <div class="shine"></div>
 
         <div class="inner">
           <header class="top">
-            <div class="logo-wrap">
-              <img src="AvenueOneLogoFrameless.ai" alt="Avenue One Logo" class="logo">
-            </div>
             <div class="brand">
               <div class="name">Avenue One</div>
               <div class="tag">Premium Haircare Distribution</div>
             </div>
-            <div class="pill" aria-label="Status">
-              <span class="dot" aria-hidden="true"></span>
-              Coming soon
-            </div>
+
+            <img src="AvenueOneLogoFrameless.svg" alt="Avenue One Logo" class="logo" />
           </header>
 
           <div class="content">
             <div>
-              <h1>Unsere neue Website entsteht gerade.</h1>
+              <h1>Unsere Website entsteht gerade.</h1>
               <p class="lead">
                 Wir arbeiten an einem neuen, hochwertigen Auftritt für Avenue One.
                 In Kürze findest du hier alle Informationen rund um unsere Marken und den Vertrieb.
               </p>
-
-              <div class="actions">
-                <a class="btn primary" href="mailto:office@avenue-one.de">✉︎ office@avenue-one.de</a>
-              </div>
             </div>
 
             <aside class="panel" aria-label="Kontakt">
               <h2>Kontakt</h2>
-              <p>
-                Für Anfragen erreichst du uns jederzeit per E-Mail.
-                Wir melden uns schnellstmöglich zurück.
-              </p>
+              <p>Für Anfragen erreichst du uns per E-Mail.</p>
               <div class="actions">
-                <a class="btn" href="mailto:office@avenue-one.de?subject=Avenue%20One%20Anfrage">E-Mail schreiben</a>
+                <a class="btn primary" href="mailto:office@avenue-one.de">E-Mail schreiben</a>
               </div>
             </aside>
           </div>
