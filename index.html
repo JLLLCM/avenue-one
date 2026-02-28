@@ -1,31 +1,323 @@
 <!doctype html>
 <html lang="de">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Avenue One – Coming Soon</title>
-<meta name="robots" content="noindex,nofollow">
-<style>
-body{
-margin:0;
-display:flex;
-align-items:center;
-justify-content:center;
-height:100vh;
-background:#0f172a;
-color:white;
-font-family:Arial,sans-serif;
-text-align:center;
-}
-h1{font-size:42px;margin-bottom:10px;}
-p{opacity:.7;font-size:18px;}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>Avenue One — Coming Soon</title>
+  <meta name="description" content="Avenue One — Premium Haircare Distribution. Coming soon." />
+  <meta name="robots" content="noindex,nofollow" />
+  <meta name="theme-color" content="#0b0a08" />
+
+  <style>
+    :root{
+      /* Champagne / Creme palette */
+      --bg0:#090806;
+      --bg1:#0e0c09;
+      --champ:#f2e7d3;      /* creme */
+      --champ2:#e7d7bc;     /* champagne */
+      --text:#f7f1e6;
+      --muted:rgba(247,241,230,.72);
+      --muted2:rgba(247,241,230,.54);
+      --line:rgba(242,231,211,.22);
+      --card:rgba(255,255,255,.06);
+      --card2:rgba(255,255,255,.08);
+
+      --radius: 24px;
+      --max: 980px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color: var(--text);
+      background:
+        radial-gradient(900px 520px at 18% 18%, rgba(242,231,211,.16) 0%, rgba(242,231,211,0) 55%),
+        radial-gradient(900px 520px at 82% 22%, rgba(231,215,188,.12) 0%, rgba(231,215,188,0) 55%),
+        radial-gradient(1200px 800px at 50% 110%, rgba(242,231,211,.10) 0%, rgba(242,231,211,0) 55%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      overflow-x:hidden;
+    }
+
+    .wrap{
+      min-height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 28px 18px;
+    }
+
+    .shell{
+      width:min(var(--max), 100%);
+      position:relative;
+    }
+
+    /* subtle grain */
+    .shell:before{
+      content:"";
+      position:absolute;
+      inset:-80px;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='.28'/%3E%3C/svg%3E");
+      opacity:.08;
+      pointer-events:none;
+      mix-blend-mode: overlay;
+      transform: rotate(1deg);
+    }
+
+    .card{
+      position:relative;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, var(--card), rgba(255,255,255,.04));
+      border: 1px solid rgba(242,231,211,.18);
+      box-shadow: 0 24px 80px rgba(0,0,0,.55);
+      backdrop-filter: blur(12px);
+      overflow:hidden;
+    }
+
+    /* glossy highlights */
+    .card:before{
+      content:"";
+      position:absolute;
+      inset:-1px;
+      background:
+        radial-gradient(900px 200px at 20% 0%, rgba(242,231,211,.22) 0%, rgba(242,231,211,0) 70%),
+        radial-gradient(800px 220px at 80% 0%, rgba(231,215,188,.16) 0%, rgba(231,215,188,0) 65%);
+      pointer-events:none;
+      opacity:.9;
+    }
+
+    .shine{
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background: linear-gradient(110deg, rgba(242,231,211,0) 30%, rgba(242,231,211,.14) 45%, rgba(242,231,211,0) 60%);
+      transform: translateX(-50%);
+      animation: sweep 6.0s ease-in-out infinite;
+      opacity:.55;
+    }
+    @keyframes sweep{
+      0%{ transform: translateX(-60%); opacity:0; }
+      18%{ opacity:.55; }
+      50%{ transform: translateX(60%); opacity:.55; }
+      100%{ transform: translateX(60%); opacity:0; }
+    }
+
+    .inner{ position:relative; padding: 34px; }
+
+    .top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 16px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid rgba(242,231,211,.16);
+    }
+
+    .brand{
+      display:flex;
+      flex-direction:column;
+      gap: 7px;
+      line-height:1.1;
+    }
+
+    .brand .name{
+      letter-spacing: .30em;
+      text-transform: uppercase;
+      font-weight: 650;
+      font-size: 12px;
+      color: rgba(242,231,211,.82);
+    }
+
+    .brand .tag{
+      font-size: 13px;
+      color: var(--muted2);
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(242,231,211,.18);
+      background: rgba(242,231,211,.06);
+      color: rgba(242,231,211,.82);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    .dot{
+      width: 8px; height: 8px;
+      border-radius: 99px;
+      background: rgba(242,231,211,.92);
+      box-shadow: 0 0 0 6px rgba(242,231,211,.08);
+      animation: pulse 2.6s ease-in-out infinite;
+    }
+    @keyframes pulse{
+      0%,100%{ transform: scale(1); opacity: .95; }
+      50%{ transform: scale(1.25); opacity: .55; }
+    }
+
+    .content{
+      padding-top: 22px;
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+      align-items: start;
+    }
+    @media (max-width: 860px){
+      .content{ grid-template-columns: 1fr; }
+    }
+
+    h1{
+      margin: 0 0 12px;
+      font-size: clamp(30px, 3.6vw, 52px);
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+    }
+
+    .lead{
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.7;
+      max-width: 64ch;
+    }
+
+    .panel{
+      border-radius: 18px;
+      border: 1px solid rgba(242,231,211,.16);
+      background: linear-gradient(180deg, rgba(242,231,211,.07), rgba(242,231,211,.03));
+      padding: 18px;
+    }
+
+    .panel h2{
+      margin: 0 0 10px;
+      font-size: 12px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: rgba(242,231,211,.82);
+      font-weight: 650;
+    }
+
+    .panel p{
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .actions{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    a.btn{
+      border: 1px solid rgba(242,231,211,.20);
+      background: rgba(242,231,211,.07);
+      color: rgba(247,241,230,.92);
+      border-radius: 14px;
+      padding: 12px 14px;
+      font-size: 14px;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      cursor:pointer;
+      transition: transform .08s ease, background .15s ease, border-color .15s ease;
+    }
+    a.btn:hover{
+      background: rgba(242,231,211,.11);
+      border-color: rgba(242,231,211,.28);
+      transform: translateY(-1px);
+    }
+    a.btn.primary{
+      background: rgba(242,231,211,.13);
+      border-color: rgba(242,231,211,.30);
+    }
+
+    .fine{
+      display:flex;
+      justify-content:space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(242,231,211,.14);
+      color: rgba(247,241,230,.46);
+      font-size: 12px;
+    }
+
+    .fine a{
+      color: rgba(242,231,211,.78);
+      text-decoration:none;
+      border-bottom: 1px solid rgba(242,231,211,.20);
+    }
+    .fine a:hover{ color: rgba(242,231,211,.95); }
+
+    @media (prefers-reduced-motion: reduce){
+      .dot, .shine{ animation:none !important; }
+      a.btn:hover{ transform:none; }
+    }
+  </style>
 </head>
+
 <body>
-<div>
-<h1>Avenue One</h1>
-<p>Unsere neue Website entsteht gerade.</p>
-<p>Coming Soon.</p>
-</div>
+  <div class="wrap">
+    <div class="shell">
+      <section class="card" aria-label="Avenue One Coming Soon">
+        <div class="shine"></div>
+
+        <div class="inner">
+          <header class="top">
+            <div class="brand">
+              <div class="name">Avenue One</div>
+              <div class="tag">Premium Haircare Distribution</div>
+            </div>
+            <div class="pill" aria-label="Status">
+              <span class="dot" aria-hidden="true"></span>
+              Coming soon
+            </div>
+          </header>
+
+          <div class="content">
+            <div>
+              <h1>Unsere neue Website entsteht gerade.</h1>
+              <p class="lead">
+                Wir arbeiten an einem neuen, hochwertigen Auftritt für Avenue One.
+                In Kürze findest du hier alle Informationen rund um unsere Marken und den Vertrieb.
+              </p>
+
+              <div class="actions">
+                <a class="btn primary" href="mailto:office@avenue-one.de">✉︎ office@avenue-one.de</a>
+              </div>
+            </div>
+
+            <aside class="panel" aria-label="Kontakt">
+              <h2>Kontakt</h2>
+              <p>
+                Für Anfragen erreichst du uns jederzeit per E-Mail.
+                Wir melden uns schnellstmöglich zurück.
+              </p>
+              <div class="actions">
+                <a class="btn" href="mailto:office@avenue-one.de?subject=Avenue%20One%20Anfrage">E-Mail schreiben</a>
+              </div>
+            </aside>
+          </div>
+
+          <footer class="fine">
+            <div>© <span id="year"></span> Avenue One</div>
+            <div><a href="mailto:office@avenue-one.de">office@avenue-one.de</a></div>
+          </footer>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
